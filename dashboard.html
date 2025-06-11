@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Panel - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-light">
+
+  <div class="container py-5">
+    <h1 class="mb-4 text-center">📊 Dashboard</h1>
+
+    <div class="row g-4 text-white">
+      <div class="col-md-3">
+        <div class="card bg-primary shadow-sm">
+          <div class="card-body">Toplam Kullanıcı: <strong>120</strong></div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card bg-success shadow-sm">
+          <div class="card-body">Aktif Kullanıcı: <strong>80</strong></div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card bg-danger shadow-sm">
+          <div class="card-body">Pasif Kullanıcı: <strong>40</strong></div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card bg-warning text-dark shadow-sm">
+          <div class="card-body">Haftalık Giriş: <strong>56</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-5 text-center">
+      <h5>📈 Haftalık Giriş Grafiği</h5>
+      <div class="chart-container mx-auto" style="max-width: 600px;">
+        <canvas id="loginChart"></canvas>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5>Kullanıcılar</h5>
+      <button class="btn btn-info text-white" onclick="openModal()">+ Yeni Kullanıcı Ekle</button>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover bg-white">
+        <thead class="table-light">
+          <tr>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>E-posta</th>
+            <th>Rol</th>
+            <th>Durum</th>
+            <th>İşlem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>aa</td>
+            <td>aa</td>
+            <td>aa@example.com</td>
+            <td><span class="badge bg-success">Admin</span></td>
+            <td><span class="badge bg-success">Aktif</span></td>
+            <td>
+              <button class="btn btn-sm btn-outline-primary">Düzenle</button>
+              <button class="btn btn-sm btn-outline-danger">Sil</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Yeni Kullanıcı Ekle</h5>
+          <button type="button" class="btn-close" onclick="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control mb-2" placeholder="Ad" />
+          <input type="text" class="form-control mb-2" placeholder="Soyad" />
+          <input type="email" class="form-control mb-2" placeholder="E-posta" />
+          <select class="form-select mb-2">
+            <option>Rol Seç</option>
+            <option>Admin</option>
+            <option>Kullanıcı</option>
+          </select>
+          <select class="form-select mb-3">
+            <option>Durum Seç</option>
+            <option>Aktif</option>
+            <option>Pasif</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success">Kaydet</button>
+          <button class="btn btn-secondary" onclick="closeModal()">Vazgeç</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
